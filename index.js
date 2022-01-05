@@ -18,7 +18,7 @@ app.use(express.json() )
 const limiter = rateLimit({
     windowMs: 100 * 60 * 100, // 10 minutes
     max: 100, // 100 requests max every 10 minutes
-    message:"You are sending too many requests. Please try again later."
+    message:"Too many requests, please try again after 10 minutes."
 })
 
 
@@ -56,7 +56,7 @@ app.get('/decode/:input', limiter, (req, res) => {
 
 
     if (!input) {
-        res.status(418).send({ message: 'No text to decode'})
+        res.status(418).send({ message: 'No text to decode.'})
     }
 
     res.status(200).send({
@@ -68,7 +68,7 @@ app.get('/decode/:input', limiter, (req, res) => {
 app.get('/dog', limiter, (req, res) => {
     
     res.status(200).send({
-        url: "https://dankrpg.xyz/api/dogs/" + Math.floor(Math.random()*201) +  ".jpg"
+        url: "https://dankrpg.xyz/api/dogs/" + Math.floor(Math.random()*300) +  ".jpg"
     });
 });
 
@@ -77,7 +77,7 @@ app.get('/dog', limiter, (req, res) => {
 app.get('/bird', limiter, (req, res) => {
     
     res.status(200).send({
-        url: "https://dankrpg.xyz/api/birds/" + Math.floor(Math.random()*101) +  ".jpg"
+        url: "https://dankrpg.xyz/api/birds/" + Math.floor(Math.random()*109) +  ".jpg"
     });
 });
 
@@ -132,6 +132,7 @@ app.get('/animals/dogfact', limiter, (req, res) => {
         "Despite common misconception, dogs are not colour-blind. They can see colour, just not as vividly as humans.",
         "Dogs are called a man's best friend, because over thousands of years, we have developed a deep bond with them.",
         "Guide dogs are trained to poop on command, so that their owners can pick up their mess easier.",
+        "Dogs can sniff at the same time as breathing.",
         "Typically, guide dogs are trained for up to a year.",
         "Dogs can suffer from PTSD, just like humans.",
         "Some of Moscow's stray dogs use the subway to travel around.", 
@@ -156,6 +157,17 @@ app.get('/animals/dogfact', limiter, (req, res) => {
         "Puppies are actually born blind and deaf.",
         "The average speed of a dog is 15-20mph, or 24-32kph!",
         "Dogs can sense the earth's magnetic field, like a compass.",
+        "Some have such good noses they can sniff out medical problems.",
+        "Service dogs pee and poop on command and know when they're on or off duty.",
+        "Chihuahuas are born with an incomplete skull just like a human baby. The soft spot is known as a molera in dogs and fontanelle in humans.",
+        "Basset Hounds have the longest ears out of any other dog breed. Many measure between 7 and 10 inches long.",
+        "Forty-five percent of U.S. dogs sleep in their owner's bed.",
+        "The Basenji is not technically \"barkless,\" as many people think. They can yodel.",
+        "When the WCC raises pups without their mothers, they sometimes enlist dogs be parental figures, to show the wolf pups how to properly interact with the hoomans.",
+        "When dogs kick after going to the bathroom, they are using the scent glands on their paws to further mark their territory.",
+        "The phrase \"Beware of Dog\" is so old that its Latin equivalent — \"cave canem\" — has been found on signs in Roman ruins.",
+        "Dogs' eyes contain a special membrane, called the tapetum lucidum, which allows them to see in the dark.",
+        "Puppies grow to half their body weight in the first four to five months.",
         ]
         
         let fact = facts[Math.floor(Math.random() * facts.length)]
