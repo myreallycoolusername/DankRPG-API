@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const rateLimit = require ("express-rate-limit")
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 8000 // Port thingy
 
 const { Canvas } = require('canvas-constructor/cairo')
 const canvas = require('canvas')
@@ -214,7 +214,7 @@ var ball = require('./routes/8ball');
 app.use('/8ball',  ball);
 
 // Listen on port
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+app.listen(PORT, () => console.log(`Sucessfully started server on port ${PORT}`))
 
 app.get('/', (req, res) => {
     res.sendFile('/home/runner/APIv1/index.html')
