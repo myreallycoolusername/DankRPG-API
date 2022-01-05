@@ -20,6 +20,10 @@ router.get('/:question', (req, res) => {
         'Perhaps',
         'Definitely',
         'Definitely yes.',
+        'As I see it, yes.',
+        'Without a doubt',
+        'Outlook good.',
+        'Signs point to yes.',
     ]
 
     let response = responses[Math.floor(Math.random() * responses.length)]
